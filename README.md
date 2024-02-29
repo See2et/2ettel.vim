@@ -1,0 +1,1 @@
+# 2ettel.nvim
