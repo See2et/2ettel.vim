@@ -1,4 +1,5 @@
 import { Denops, parse } from "./deps.ts";
+import { setCmd } from "./lib/setCmd.ts";
 
 export let dir = "";
 
@@ -16,10 +17,6 @@ export async function main(denops: Denops): Promise<void> {
     },
   };
 
-  await denops.cmd(
-    `command! -nargs=? ZettelSetDir call denops#request('${denops.name}', 'setDir', [<f-args>])`,
-  );
-  await denops.cmd(
-    `command! -nargs=? ZettelGetDir call denops#request('${denops.name}', 'getDir', [<f-args>])`,
-  );
+  setCmd(denops, "ZettelSetDir", "setDir");
+  setCmd(denops, "ZettelGetDir", "getDir");
 }
